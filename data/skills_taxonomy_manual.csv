@@ -1,0 +1,133 @@
+skill,category,aliases
+python,programming,py
+r,programming,
+sql,programming,structured query language
+java,programming,
+c++,programming,cpp
+javascript,programming,js
+scala,programming,
+bash,programming,shell scripting
+pandas,library,
+numpy,library,np
+scikit-learn,library,sklearn
+matplotlib,library,
+seaborn,library,
+plotly,library,
+tensorflow,library,tf
+pytorch,library,torch
+keras,library,
+xgboost,library,
+lightgbm,library,
+catboost,library,
+statsmodels,library,
+nltk,library,natural language toolkit
+spacy,library,
+opencv,library,cv2
+flask,framework,
+fastapi,framework,
+django,framework,
+streamlit,framework,
+machine learning,concept,ml
+deep learning,concept,dl
+supervised learning,concept,
+unsupervised learning,concept,
+reinforcement learning,concept,rl
+natural language processing,concept,nlp
+computer vision,concept,cv
+time series analysis,concept,time series forecasting
+regression,concept,linear regression
+classification,concept,
+clustering,concept,
+neural networks,concept,ann
+convolutional neural network,concept,cnn
+recurrent neural network,concept,rnn
+transformer models,concept,transformers
+feature engineering,concept,
+model evaluation,concept,
+hyperparameter tuning,concept,
+cross validation,concept,
+data cleaning,concept,data wrangling
+data preprocessing,concept,
+exploratory data analysis,concept,eda
+statistics,concept,statistical analysis
+probability,concept,
+hypothesis testing,concept,
+a/b testing,concept,ab testing
+sql server,database,mssql
+mysql,database,
+postgresql,database,postgres
+mongodb,database,nosql
+sqlite,database,
+oracle database,database,oracle
+redis,database,
+elasticsearch,database,
+aws,cloud,amazon web services
+azure,cloud,microsoft azure
+gcp,cloud,google cloud platform
+docker,devops,
+kubernetes,devops,k8s
+git,devops,
+github,devops,
+gitlab,devops,
+ci/cd,devops,continuous integration
+jenkins,devops,
+linux,devops,
+airflow,devops,apache airflow
+mlflow,devops,
+power bi,visualization,powerbi
+tableau,visualization,
+excel,tool,microsoft excel
+jupyter,tool,jupyter notebook
+vs code,tool,visual studio code
+jira,tool,
+confluence,tool,
+rest api,tool,restful api
+graphql,tool,
+api development,tool,
+data structures,concept,
+algorithms,concept,
+object oriented programming,concept,oop
+software engineering,concept,
+version control,concept,
+agile,methodology,agile methodology
+scrum,methodology,
+project management,concept,
+problem solving,soft skill,
+communication,soft skill,
+teamwork,soft skill,collaboration
+leadership,soft skill,
+critical thinking,soft skill,
+analytical skills,soft skill,
+data visualization,concept,
+big data,concept,
+hadoop,tool,
+spark,tool,apache spark
+pyspark,library,
+data warehousing,concept,
+etl,concept,extract transform load
+data pipeline,concept,
+web scraping,concept,
+beautifulsoup,library,bs4
+selenium,library,
+network analysis,concept,graph analysis
+networkx,library,
+graph theory,concept,
+recommendation systems,concept,
+anomaly detection,concept,
+sentiment analysis,concept,
+named entity recognition,concept,ner
+text classification,concept,
+information retrieval,concept,
+dimensionality reduction,concept,
+pca,concept,principal component analysis
+model deployment,concept,
+model monitoring,concept,
+explainable ai,concept,xai
+fairness in ml,concept,responsible ai
+data privacy,concept,
+security,concept,
+authentication,concept,
+authorization,concept,
+testing,concept,unit testing
+pytest,library,
+unittest,library,
