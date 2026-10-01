@@ -93,7 +93,6 @@ attend gaming tests,esco,"attend game testing, attend tests for gaming, be prese
 audio editing software,esco,"audio edit software, audio editing plugin, audio editing program"
 audio technology,esco,"audio equipment, audio software, audio techniques, audio technologies"
 audiometry,esco,"diagnosing hearing impairment through audiometry, measuring hearing acuity, testing of a person's ability to hear sound frequencies"
-authentication,concept,
 authoring software,esco,
 authorization,concept,
 aws,cloud,amazon web services
@@ -126,7 +125,6 @@ building codes,esco,"building laws, building regulations, building rules, buildi
 building information modelling,esco,"bim, building information modelling"
 business analytics,esco,business data analytics
 business ict systems,esco,business it systems
-business intelligence,esco,"bi, business analytics, business intelligence tools"
 business law,esco,"business laws, business legislation, business norms, business regulation, the law of business"
 business process modelling,esco,"bpmn, business process modeling, process modelling"
 c++,programming,"c++ framework, c++ software, cpp"
@@ -208,8 +206,6 @@ computer equipment,esco,"computer apparatus, computer devices, computer machiner
 computer forensics,esco,"digital forensic investigation, forensic it"
 computer graphics,esco,"interactive computer graphics, vector graphics"
 computer history,esco,"computers history, history of computers, informatics history"
-computer programming,esco,"actionscript, ada, algol, angularjs, applescript, aspectj, awk, bash, bcpl, biztalk, c shell, caml, ceylon, coldfusion, comal, ct, curl, dibol, dylan, emacs lisp, euphoria, fantom, fortran, gcc, gosu, hack, hypertalk, idl, intercal, io, knockoutjs, korn-shell, labview, lua, msvc++, object pascal, ocaml, occam, opencv, pl/i, postscript, powershell, rebol, rexx, seed7, squirrel-script, stl, subversion, tacl, tcl, turing, visual basic, visual basic .net, x10, z shell"
-computer science,esco,"informatics, informatics studies"
 computer simulation,esco,"computer-based simulation, simulation software ansys"
 computer technology,esco,"ict, information and communications technology, information technology, it, technology in computer networks, technology in computers, technology in computing, technology of computers"
 computer vision,concept,"cuda, cv, keras, matlab, ocr, opencv, simplecv, tensorflow"
@@ -403,7 +399,6 @@ drop hammer types,esco,"drop hammer brands, drop hammer categories, drop hammer 
 e-agriculture,esco,"agriculture 4.0, digital agriculture, information and communication technology in agriculture, smart agriculture, smart farming"
 e-learning software infrastructure,esco,e-learning software infrastracture and applications
 eclipse,esco,"eclipse, eclipse ide, knowledge of eclipse"
-economics,esco,"banking, commodity markets, economic practices, economic principles, finances, financial data, financial economics, financials, market economics"
 edit digital moving images,esco,"edit digital footage, edit digital images of animation, edit digital images of movement, edit moving digital images"
 edit photographs,esco,"edit photos, edit photos and negatives, editing photographs, use photo editing software"
 educate on data confidentiality,esco,"educate about data confidentiality, educating about data confidentiality, educating on data confidentiality, instruct on data confidentiality, teach data confidentiality principles"
@@ -526,7 +521,6 @@ ict network security risks,esco,"ict network security threats, information syste
 ict network simulation,esco,"ict network simulation methods, ict network simulation systems, ict network simulation tools"
 ict networking hardware,esco,"computer networking devices, ict networking devices"
 ict process quality models,esco,"cmm, cmmi (capability maturity model integrated), quality maturity models, software process quality"
-ict project management methodologies,esco,"agile, benefits realization management, code and fix development, critical chain project management, extreme project management, prince2, project management framework, project management software, scrum, software development methodologies, structured methodology"
 ict recovery techniques,esco,"ict recovery methods, ict recovery techniques for corrupted data, ict recovery techniques for corrupted software components, ict recovery techniques for damaged and corrupted software components, ict recovery techniques for hardware"
 ict security legislation,esco,"cyber-security regulation, ict law, legal aspects of computing, network and information security legislation"
 ict security standards,esco,"cyber security compliances, cyber security frameworks, cyber security standards, ict security compliances, ict security frameworks, information security compliances, information security frameworks, information security standards, it security compliances, it security frameworks, it security standards"
@@ -713,7 +707,6 @@ marklogic,esco,"marklogic non-relational database, marklogic nosql database"
 massage types,esco,"classifications of massages, different types of massage, forms of massage, kinds of massage, massage therapies, types of massage, variety of massage forms, variety of massage techniques, variety of massage therapies, variety of massage treatments"
 materials for interior design,esco,"arrangement for interior design, development for interior design, material for an interior design, material for interior designs, materials for an interior design, models for interior design"
 mathematical modelling,esco,"mathematical computation, mathematical representation, mathematical simulation"
-mathematics,esco,"calculation, field of mathematics, mathematical subjects, maths, numeracy, quantitative data, solid modeling, study of mathematics"
 matlab,esco,"matlab algorithms, matlab coding techniques, matlab programming paradigms, matlab software development principles, matlab software development techniques"
 matplotlib,library,
 "maxillo-facial, oral, and dental surgery",esco,"dental, face, jaws and skull, maxillo-facial, mouth, oral and dental surgeries, oral and maxillo-facial surgery, surgical interventions to treat injuries of the teeth, types of dental surgery"
@@ -1168,7 +1161,6 @@ thermodynamics,esco,"laws of thermodynamics, thermo-dynamics"
 time series analysis,concept,time series forecasting
 time-display methods,esco,"analog clocks, auditory clocks, digital clocks, methods of time-display, multi-display clocks, or tactile clocks., projection clocks, range of time-display methods, sorts of time-display methods, types of time-display methods, typology of time-display methods, word clocks"
 tobacco manufacturing regulations,esco,"tobacco manufacture regulation, tobacco manufacture regulations, tobacco manufacturing laws, tobacco manufacturing ordinances, tobacco manufacturing regulation, tobacco manufacturing rules, tobacco manufacturing statutes"
-tools for software configuration management,esco,"bcfg2, cdist, cfengine, git, isconf, local configuration system, nixos, noc, ocs inventory ng with glpi, open pc server integration, pikt, quattor, radmind, revision control, rudder, rundeck, smartfrog, software tools for version control, source control, synctool, tools for software version control"
 trade union regulations,esco,"regulations for trade unions, trade union laws, trade union regulation, trade union rules"
 trading law,esco,"commerce law, laws on trading, trade law, trading laws"
 trading software,esco,"trading application, trading software solution"
@@ -1276,7 +1268,6 @@ use specialised computer models for weather forecasting,esco,"anticipate weather
 use specialised design software,esco,"use specialized design software, using specialised design software, utilize specialised design software, work with specialised design software"
 use specialised equipment,esco,"specialised equipment using, specialised production equipment using, use computer modelling, use digital imaging analysis, use electron microscope, use global positioning systems, use specialised production equipment, use specialized equipment, use telemetry, using specialised production equipment"
 use specific data analysis software,esco,"carry out data analysis using specific software, conduct data analysis activities utilising specific software, conduct data analysis using particular software, perform data analysis using specific software, undertake data analysis through use of specific software, use particular data analysis software, use specific software for data analysis, utilise particular data analysis software, utilise specific data analysis software, utilise specific software for data analysis"
-use spreadsheets software,esco,"ability office spreadsheet, accel spreadsheet, calligra sheets, cellpro, corel calculate, design spreadsheets, dhtmlxspreadsheet, dolphinity planner, gnumeric, google sheets, household budget worksheet, ibm lotus symphony spreadsheets, kingsoft spreadsheet, libreoffice calc, lotus 1-2-3, lotus improv, microsoft office excel, ms excel, myrtle, ooo4kids calc, oxygenoffice professional calc, planmaker, qt calc express, quantrix modeler, resolverone, sheetster, simple spreadsheet, sphygmic software spreadsheet, thinkfree office calc, use spreadsheets program, wikicalc, zoho sheet"
 use technical drawing software,esco,"create designs with specialist software, design creation using specialist software, design using specialist software, design with specialist software, designing using specialist software, designing with specialist software, technical drawing software usage, usage of technical drawing software, use of technical drawing software, using of technical drawing software, using technical drawing software"
 use testing equipment,esco,"apply testing equipment, deal with testing equipment, employ testing tools, make use of testing equipment, manage testing equipment, use equipment for testing, utilise testing equipment, work with testing tools"
 use theoretical marketing models,esco,"use theoretical marketing model, use theoretical models for marketing, using theoretical marketing models, utilize theoretical marketing models, work with theoretical marketing models"

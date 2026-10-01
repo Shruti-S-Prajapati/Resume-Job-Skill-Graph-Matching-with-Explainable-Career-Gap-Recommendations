@@ -1,5 +1,14 @@
 import re
+from pathlib import Path
 import pandas as pd
+
+
+def load_exclude_list(path: str = "data/exclude_skills.txt") -> set:
+    p = Path(path)
+    if not p.exists():
+        return set()
+    with open(p, encoding="utf-8") as f:
+        return set(line.strip().lower() for line in f if line.strip())
 
 
 def clean_skill_name(skill: str) -> str:
@@ -45,6 +54,10 @@ def merge_taxonomies(manual_path: str, esco_path: str, output_path: str):
         })
 
     final_df = pd.DataFrame(rows)
+
+    exclude_set = load_exclude_list()
+    final_df = final_df[~final_df["skill"].isin(exclude_set)]
+
     final_df = final_df.sort_values("skill").reset_index(drop=True)
     final_df.to_csv(output_path, index=False)
 
