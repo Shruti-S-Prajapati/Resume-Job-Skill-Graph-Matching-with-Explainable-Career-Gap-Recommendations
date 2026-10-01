@@ -1,0 +1,59 @@
+pair_id,resume_file,jd_file,skill,system_label,correct_gap
+1,resume_01.pdf,jd_01.txt,aws,missing,1
+1,resume_01.pdf,jd_01.txt,azure,missing,1
+1,resume_01.pdf,jd_01.txt,computer science,missing,0
+1,resume_01.pdf,jd_01.txt,data science,missing,0
+1,resume_01.pdf,jd_01.txt,machine learning,missing,1
+1,resume_01.pdf,jd_01.txt,model deployment,missing,1
+1,resume_01.pdf,jd_01.txt,model evaluation,missing,1
+1,resume_01.pdf,jd_01.txt,process data,missing,0
+1,resume_01.pdf,jd_01.txt,pytorch,missing,1
+1,resume_01.pdf,jd_01.txt,software engineering,missing,1
+1,resume_01.pdf,jd_01.txt,tensorflow,missing,1
+1,resume_01.pdf,jd_01.txt,python,matched,1
+2,resume_02.pdf,jd_02.txt,devops,missing,0
+2,resume_02.pdf,jd_02.txt,digital identity management,missing,0
+2,resume_02.pdf,jd_02.txt,docker,missing,1
+2,resume_02.pdf,jd_02.txt,kubernetes,missing,1
+2,resume_02.pdf,jd_02.txt,linux,missing,1
+2,resume_02.pdf,jd_02.txt,security,missing,1
+2,resume_02.pdf,jd_02.txt,aws,matched,1
+3,resume_03.pdf,jd_03.txt,algorithms,missing,1
+3,resume_03.pdf,jd_03.txt,data science,missing,0
+3,resume_03.pdf,jd_03.txt,docker,missing,1
+3,resume_03.pdf,jd_03.txt,machine learning,missing,1
+3,resume_03.pdf,jd_03.txt,ml,missing,0
+3,resume_03.pdf,jd_03.txt,model monitoring,missing,1
+3,resume_03.pdf,jd_03.txt,python,missing,1
+3,resume_03.pdf,jd_03.txt,pytorch,missing,1
+3,resume_03.pdf,jd_03.txt,scikit-learn,missing,1
+3,resume_03.pdf,jd_03.txt,software engineering,missing,1
+3,resume_03.pdf,jd_03.txt,tensorflow,missing,1
+3,resume_03.pdf,jd_03.txt,computer science,matched,0
+4,resume_04.pdf,jd_04.txt,aws,missing,1
+4,resume_04.pdf,jd_04.txt,azure,missing,1
+4,resume_04.pdf,jd_04.txt,collect tourist information,missing,0
+4,resume_04.pdf,jd_04.txt,communication,missing,1
+4,resume_04.pdf,jd_04.txt,security,missing,1
+4,resume_04.pdf,jd_04.txt,software engineering,missing,1
+5,resume_05.pdf,jd_05.txt,collect tourist information,missing,0
+5,resume_05.pdf,jd_05.txt,communication,missing,1
+5,resume_05.pdf,jd_05.txt,linux,missing,1
+5,resume_05.pdf,jd_05.txt,database,matched,0
+5,resume_05.pdf,jd_05.txt,sql,matched,1
+6,resume_06.pdf,jd_06.txt,collaborate with designers,missing,0
+6,resume_06.pdf,jd_06.txt,testing,matched,1
+6,resume_06.pdf,jd_06.txt,tools for software configuration management,matched,0
+7,resume_07.pdf,jd_07.txt,aws,missing,1
+7,resume_07.pdf,jd_07.txt,azure,missing,1
+7,resume_07.pdf,jd_07.txt,devops,missing,1
+7,resume_07.pdf,jd_07.txt,gcp,missing,1
+7,resume_07.pdf,jd_07.txt,kubernetes,missing,1
+7,resume_07.pdf,jd_07.txt,linux,missing,1
+8,resume_08.pdf,jd_08.txt,business intelligence,missing,1
+8,resume_08.pdf,jd_08.txt,collect tourist information,missing,0
+8,resume_08.pdf,jd_08.txt,communication,missing,1
+8,resume_08.pdf,jd_08.txt,data models,missing,1
+8,resume_08.pdf,jd_08.txt,make data-driven decisions,missing,0
+8,resume_08.pdf,jd_08.txt,power bi,missing,1
+8,resume_08.pdf,jd_08.txt,sql,matched,1

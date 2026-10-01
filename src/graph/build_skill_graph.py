@@ -21,7 +21,7 @@ def compute_idf(skill_sets: list) -> dict:
     return idf
 
 
-def build_cooccurrence_graph(skill_sets: list, min_weight: int = 2) -> nx.Graph:
+def build_cooccurrence_graph(skill_sets: list, min_weight: int = 1) -> nx.Graph:
     """
     Co-occurrence graph banata hai, but edge weight ko IDF se scale karta hai —
     taaki bahut common skills (jaise python, jo har document mein hai) ke edges
