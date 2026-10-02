@@ -1,59 +1,212 @@
 import pickle
 
-from src.parsing.resume_parser import parse_resume
-from src.parsing.jd_parser import parse_jd
-from src.normalization.skill_extractor import load_taxonomy, build_skill_lookup, extract_skills
-from src.similarity.tfidf_similarity import compute_tfidf_similarity
-from src.graph.gap_explainer import explain_gaps
+import networkx as nx
+
+import src.similarity.compare_approaches as compare_module
 
 
-def compare_all_approaches(resume_path: str, jd_path: str, graph_path: str = "data/processed/skill_graph.gpickle") -> dict:
-    taxonomy = load_taxonomy()
-    lookup = build_skill_lookup(taxonomy)
+def make_graph():
+    graph = nx.Graph()
 
-    resume_text = parse_resume(resume_path)
-    jd_text = parse_jd(jd_path)
+    graph.add_edge(
+        "python",
+        "pandas",
+        weight=2.0,
+    )
 
-    resume_skills = extract_skills(resume_text, lookup)
-    jd_skills = extract_skills(jd_text, lookup)
+    graph.add_edge(
+        "pandas",
+        "scikit-learn",
+        weight=2.0,
+    )
 
-    matched = resume_skills & jd_skills
-    missing = jd_skills - resume_skills
-    extra = resume_skills - jd_skills
+    return graph
 
-    skill_overlap_pct = round((len(matched) / len(jd_skills) * 100), 2) if jd_skills else 0
-    tfidf_pct = compute_tfidf_similarity(resume_text, jd_text)
 
-    with open(graph_path, "rb") as f:
-        graph = pickle.load(f)
-    gap_explanations = explain_gaps(graph, resume_skills, missing)
+def test_compare_all_approaches_combines_overlap_tfidf_and_graph(
+    tmp_path,
+    monkeypatch,
+):
+    graph_path = tmp_path / "graph.gpickle"
 
-    # Graph-aware score: missing skills ko unki distance se "penalize" karke ek score banate hain
-    # Agar distance chhoti hai (paas hai), to us gap ka weight kam; door hai to zyada
-    reachable = [v["distance"] for v in gap_explanations.values() if v["distance"] is not None]
-    avg_gap_distance = round(sum(reachable) / len(reachable), 2) if reachable else None
+    with graph_path.open("wb") as f:
+        pickle.dump(make_graph(), f)
 
-    return {
-        "matched": matched,
-        "missing": missing,
-        "extra": extra,
-        "skill_overlap_score": skill_overlap_pct,
-        "tfidf_score": tfidf_pct,
-        "avg_gap_distance": avg_gap_distance,
-        "gap_explanations": gap_explanations,
-        "jd_text": jd_text,
+    monkeypatch.setattr(
+        compare_module,
+        "load_taxonomy",
+        lambda: object(),
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "build_skill_lookup",
+        lambda taxonomy: {"python": "python"},
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "parse_resume",
+        lambda path: "Python resume",
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "parse_jd",
+        lambda path: "Python pandas scikit-learn",
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "extract_skills",
+        lambda text, lookup: (
+            {"python"}
+            if text == "Python resume"
+            else {"python", "pandas", "scikit-learn"}
+        ),
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "compute_tfidf_similarity",
+        lambda resume, jd: 75.5,
+    )
+
+    result = compare_module.compare_all_approaches(
+        "resume.pdf",
+        "jd.txt",
+        graph_path=str(graph_path),
+    )
+
+    assert result["matched"] == {"python"}
+    assert result["missing"] == {"pandas", "scikit-learn"}
+    assert result["extra"] == set()
+
+    assert result["skill_overlap_score"] == 33.33
+    assert result["tfidf_score"] == 75.5
+
+    assert result["jd_text"] == "Python pandas scikit-learn"
+
+    assert result["avg_gap_distance"] is not None
+
+    assert set(result["gap_explanations"]) == {
+        "pandas",
+        "scikit-learn",
     }
 
 
-if __name__ == "__main__":
-    result = compare_all_approaches(
-        resume_path="data/raw/resumes/resume_01.pdf",
-        jd_path="data/raw/jds/jd_01.txt",
+def test_compare_all_approaches_handles_jd_with_no_detected_skills(
+    tmp_path,
+    monkeypatch,
+):
+    graph_path = tmp_path / "graph.gpickle"
+
+    with graph_path.open("wb") as f:
+        pickle.dump(nx.Graph(), f)
+
+    monkeypatch.setattr(
+        compare_module,
+        "load_taxonomy",
+        lambda: object(),
     )
 
-    print(f"Skill-overlap score: {result['skill_overlap_score']}%")
-    print(f"TF-IDF score: {result['tfidf_score']}%")
-    print(f"Avg graph-distance of gaps: {result['avg_gap_distance']}")
-    print(f"\nMissing skills with explanation:")
-    for skill, info in result["gap_explanations"].items():
-        print(f"  {skill}: distance={info['distance']}, nearest_known={info['nearest_known_skill']}")
+    monkeypatch.setattr(
+        compare_module,
+        "build_skill_lookup",
+        lambda taxonomy: {},
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "parse_resume",
+        lambda path: "resume",
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "parse_jd",
+        lambda path: "jd",
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "extract_skills",
+        lambda text, lookup: set(),
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "compute_tfidf_similarity",
+        lambda resume, jd: 0.0,
+    )
+
+    result = compare_module.compare_all_approaches(
+        "resume.pdf",
+        "jd.txt",
+        graph_path=str(graph_path),
+    )
+
+    assert result["matched"] == set()
+    assert result["missing"] == set()
+    assert result["extra"] == set()
+
+    assert result["skill_overlap_score"] == 0
+    assert result["tfidf_score"] == 0.0
+
+    assert result["avg_gap_distance"] is None
+    assert result["gap_explanations"] == {}
+
+
+def test_compare_all_approaches_raises_for_missing_graph(
+    tmp_path,
+    monkeypatch,
+):
+    monkeypatch.setattr(
+        compare_module,
+        "load_taxonomy",
+        lambda: object(),
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "build_skill_lookup",
+        lambda taxonomy: {},
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "parse_resume",
+        lambda path: "resume",
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "parse_jd",
+        lambda path: "jd",
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "extract_skills",
+        lambda text, lookup: set(),
+    )
+
+    monkeypatch.setattr(
+        compare_module,
+        "compute_tfidf_similarity",
+        lambda resume, jd: 0.0,
+    )
+
+    missing_graph = tmp_path / "missing.gpickle"
+
+    try:
+        compare_module.compare_all_approaches(
+            "resume.pdf",
+            "jd.txt",
+            graph_path=str(missing_graph),
+        )
+
+        assert False, "Expected FileNotFoundError"
+
+    except FileNotFoundError:
+        pass
