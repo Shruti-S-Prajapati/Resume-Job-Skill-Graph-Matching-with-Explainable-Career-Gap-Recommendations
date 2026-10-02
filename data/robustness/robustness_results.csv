@@ -1,0 +1,6 @@
+variant,expected_skill_count,extracted_skill_count,retention_rate_pct,skill_jaccard_pct,unexpected_skill_count,jd_overlap_pct,missing_jd_skill_count,tfidf_vs_clean_pct,missing_skills
+clean,7,7,100.0,100.0,0,100.0,0,100.0,
+case_and_punctuation,7,6,85.71,85.71,0,85.71,1,100.0,machine learning
+whitespace_noise,7,7,100.0,100.0,0,100.0,0,100.0,
+pdf_extraction_artifacts,7,5,71.43,71.43,0,71.43,2,87.64,"python, scikit-learn"
+heavy_irrelevant_noise,7,7,100.0,100.0,0,100.0,0,42.69,
