@@ -9,7 +9,8 @@ import tempfile
 import pandas as pd
 
 from src.similarity.compare_approaches import compare_all_approaches
-from src.ranking.gap_ranker import rank_gaps
+from src.ranking.gap_ranker import rank_gaps_from_result
+from src.evaluation.audit_logger import log_correction
 
 st.set_page_config(page_title="Resume-JD Skill Gap Matcher", layout="wide")
 
@@ -36,7 +37,7 @@ if resume_file and jd_file:
         with st.spinner("Analyzing..."):
             try:
                 result = compare_all_approaches(resume_path, jd_path)
-                ranked = rank_gaps(resume_path, jd_path)
+                ranked = rank_gaps_from_result(result["jd_text"], result["missing"], result["gap_explanations"])
 
                 st.success("Analysis complete")
 
@@ -81,7 +82,13 @@ if resume_file and jd_file:
                     default=sorted(result['matched']),
                 )
                 if st.button("Save Correction"):
-                    st.info(f"Correction saved: {len(corrected_skills)} skills marked as matched. (This would be logged to the audit trail in production.)")
+                    log_correction(
+                        resume_name=resume_file.name,
+                        jd_name=jd_file.name,
+                        original_skills=result['matched'],
+                        corrected_skills=set(corrected_skills),
+                    )
+                    st.success(f"Correction saved to audit log: {len(corrected_skills)} skills marked as matched.")
 
                 # --- Extra skills (resume has, JD doesn't need) ---
                 with st.expander(f"Extra Skills in Resume ({len(result['extra'])})"):

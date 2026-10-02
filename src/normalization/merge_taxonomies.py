@@ -24,7 +24,7 @@ def load_csv(path: str) -> pd.DataFrame:
     return df
 
 
-def merge_taxonomies(manual_path: str, esco_path: str, output_path: str):
+def merge_taxonomies(manual_path: str, esco_path: str, output_path: str, exclude_path: str = "data/exclude_skills.txt"):
     manual_df = load_csv(manual_path)
     esco_df = load_csv(esco_path)
 
@@ -55,7 +55,7 @@ def merge_taxonomies(manual_path: str, esco_path: str, output_path: str):
 
     final_df = pd.DataFrame(rows)
 
-    exclude_set = load_exclude_list()
+    exclude_set = load_exclude_list(exclude_path)
     final_df = final_df[~final_df["skill"].isin(exclude_set)]
 
     final_df = final_df.sort_values("skill").reset_index(drop=True)

@@ -7,3 +7,8 @@ mathematics
 authentication
 use spreadsheets software
 computer programming
+collect tourist information
+computer technology
+information structure
+manage quantitative data
+service-oriented modelling
